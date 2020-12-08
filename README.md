@@ -59,12 +59,13 @@ You want to find the paths to the following folders within you Plex app data fol
 
 Create new the following folders outside of the app data folder.
 
-`/Cache/Transcode/Sync+`
-`/Cache/PhotoTranscoder`
-`/plex_data/Media`
-`/Metadata`
+`/Cache/Transcode/Sync+` 
+`/Cache/PhotoTranscoder` 
+`/plex_data/Media` 
+`/Metadata` 
 
 > in my example i place them all under `/mnt/disks/plex/plex_data/*`
+
 > Note: `match these paths to your setup`
 
 **4.**
