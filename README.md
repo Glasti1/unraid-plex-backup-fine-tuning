@@ -104,19 +104,17 @@ To backup the 'less' important Plex data:
 - Go to the user scripts plugin, *Settings --> User Plugins*
 - Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plexdata`.
 - Copy and paste the this script in there. 
+https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata
 
 > NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
 
-https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata
-
-- Change the following paths to the correct paths:
+- Change the following paths to the match your paths:
 
  `#Set Plexdata Directory (must include trailing /)
 plexdataDirectory='/PATH/TO/YOUR/PLEXDATA/'`
 
 In my example `/mnt/disks/plex/plex_data/ `
 
-> Note: match these paths to your setup
 
 and 
 
@@ -126,32 +124,28 @@ backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/' `
 
 My backups go to `/mnt/user/backups/plex/`
 
-> Note: match these paths to your setup
 
 - Press `SAVE CHANGES`
 
 To backup the important Plex data:
 
 - Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plex_dbs`
-- Copy and paste this script in there. 
-
-> NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
- 
+- Copy and paste the this script in there. 
 https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 
+> NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
+
+- Change the following paths to the match your paths:
+ 
 `#Set Appdata Directory (must include trailing /)
 plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
 
 In my example `/mnt/disks/plex/appdata/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
-> Note: match these paths to your setup
-
 `#Set Backup Directory (must include trailing /)
 backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
 
 My backups go to `/mnt/user/backups/plex/plexdb/`
-
-> Note: match these paths to your setup
 
 - Press `SAVE CHANGES`
 
