@@ -58,10 +58,10 @@ In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Med
 
 Create new the following folders outside of the app data folder.
 
-`/Cache/Transcode/Sync+` 
-`/Cache/PhotoTranscoder` 
-`/plex_data/Media` 
-`/Metadata` 
+- `/Cache/Transcode/Sync+` 
+- `/Cache/PhotoTranscoder` 
+- `/plex_data/Media` 
+- `/Metadata` 
 
 In my example i place them all under `/mnt/disks/plex/plex_data/*`
 
