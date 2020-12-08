@@ -137,6 +137,8 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 
 In my example `/mnt/disks/plex/appdata/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
+and
+
 `backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
 
 My backups go to `/mnt/user/backups/plex/plexdb/`
