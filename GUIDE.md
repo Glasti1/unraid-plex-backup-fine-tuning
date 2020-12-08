@@ -65,7 +65,7 @@ Create new the following folders outside of the app data folder.
 
 In my example i place them all under `/mnt/disks/plex/plex_data/*`
 
-> Note: `match these paths to your setup`
+> Note: match these paths to your setup
 
 **4.**
 
@@ -95,7 +95,7 @@ While the files are moving we are going to create new paths within the container
 - **Repeat this step for the PhotoTranscoder, Media and Metadata paths**
 - Press `APPLY` to save the new config.
 
->Note: When using an unassigned drive for your data do not forget to use `R/W Slave`
+>Note: when using an unassigned drive for your data do not forget to use `R/W Slave`
 
 **7.**
 
