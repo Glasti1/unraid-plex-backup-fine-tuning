@@ -123,6 +123,7 @@ and
 #Set Backup Directory (must include trailing /) 
 
 backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/' 
+
 My backups go to /mnt/user/backups/plex/
 
 > Note: match these paths to your setup
@@ -141,6 +142,7 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 #Set Appdata Directory (must include trailing /)
 
 plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'
+
 In my example /mnt/disks/plex/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/
 
 > Note: match these paths to your setup
@@ -171,3 +173,4 @@ For backup_plex_dbs i have set 10 2 * * *.
 Test the scripts if they are working properly.
 
 Enjoy your fast backups with minimal downtime. 
+
