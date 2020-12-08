@@ -53,18 +53,19 @@ You want to find the paths to the following folders within you Plex app data fol
 > later for the backup script
 
 > In my example these folders are under
-> `/mnt/disks/tower_appdata/appdata/plex/app/Plex Media Server/*`
+> `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`
 
 **3.**
 
 Create new the following folders outside of the app data folder.
 
-`/mnt/disks/tower_appdata/plex_data/Cache/Transcode/Sync+
-/mnt/disks/tower_appdata/plex_data/Cache/PhotoTranscoder
-/mnt/disks/tower_appdata/plex_data/Media
-/mnt/disks/tower_appdata/plex_data/Metadata`
+`/Cache/Transcode/Sync+`
+`/Cache/PhotoTranscoder`
+`/plex_data/Media`
+`/Metadata`
 
-> Note: match these paths to your setup
+> in my example i place them all under `/mnt/disks/plex/plex_data/*`
+> Note: `match these paths to your setup`
 
 **4.**
 
@@ -86,7 +87,7 @@ While the files are moving we are going to create new paths within the container
 
 > Note: match these paths to your setup
 
-- Host Path: `/mnt/disks/tower_appdata/plex_data/Cache/Transcode/Sync+/ `
+- Host Path: `/mnt/disks/plex/plex_data/Cache/Transcode/Sync+/ `
 
 > Note: match these paths to your setup
 
@@ -141,7 +142,7 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 `#Set Appdata Directory (must include trailing /)
 plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
 
-In my example `/mnt/disks/plex/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
+In my example `/mnt/disks/plex/appdata/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
 > Note: match these paths to your setup
 
