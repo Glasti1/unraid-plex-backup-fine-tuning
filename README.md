@@ -110,8 +110,8 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata
 
 - Change the following paths to the match your paths:
 
- `#Set Plexdata Directory (must include trailing /)
-plexdataDirectory='/PATH/TO/YOUR/PLEXDATA/'`
+ `#Set Plexdata Directory (must include trailing /)`
+`plexdataDirectory='/PATH/TO/YOUR/PLEXDATA/'`
 
 In my example `/mnt/disks/plex/plex_data/ `
 
@@ -119,8 +119,8 @@ In my example `/mnt/disks/plex/plex_data/ `
 and 
 
  
-`#Set Backup Directory (must include trailing /) 
-backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/' `
+`#Set Backup Directory (must include trailing /)` 
+`backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/' `
 
 My backups go to `/mnt/user/backups/plex/`
 
@@ -137,13 +137,13 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 
 - Change the following paths to the match your paths:
  
-`#Set Appdata Directory (must include trailing /)
-plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
+`#Set Appdata Directory (must include trailing /)`
+`plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
 
 In my example `/mnt/disks/plex/appdata/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
 
-`#Set Backup Directory (must include trailing /)
-backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
+`#Set Backup Directory (must include trailing /)`
+`backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
 
 My backups go to `/mnt/user/backups/plex/plexdb/`
 
