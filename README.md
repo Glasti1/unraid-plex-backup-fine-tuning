@@ -91,7 +91,7 @@ While the files are moving we are going to create new paths within the container
 
 > Note: match these paths to your setup
 
-- Press `Add`
+- Press `ADD`
 - **Repeat this step for the PhotoTranscoder, Media and Metadata paths**
 - Press `APPLY` to save the new config.
 
