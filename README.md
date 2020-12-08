@@ -52,8 +52,7 @@ You want to find the paths to the following folders within you Plex app data fol
 > These are critical files we are not moving, but we will need the paths
 > later for the backup script
 
-> In my example these folders are under
-> `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`
+In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`
 
 **3.**
 
@@ -64,7 +63,7 @@ Create new the following folders outside of the app data folder.
 `/plex_data/Media` 
 `/Metadata` 
 
-> in my example i place them all under `/mnt/disks/plex/plex_data/*`
+In my example i place them all under `/mnt/disks/plex/plex_data/*`
 
 > Note: `match these paths to your setup`
 
