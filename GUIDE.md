@@ -105,7 +105,7 @@ To backup the 'less' important Plex data:
 
 - Go to the user scripts plugin, *Settings --> User Plugins*
 - Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plexdata`.
-- Copy and paste the this script in there. 
+- Edit the script and paste this script in there. 
 https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata
 
 > NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
@@ -128,7 +128,7 @@ My backups go to `/mnt/user/backups/plex/`
 To backup the important Plex data:
 
 - Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plex_dbs`
-- Copy and paste the this script in there. 
+- Edit the script and paste this script in there. 
 https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
 
 > NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
