@@ -137,7 +137,7 @@ https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
  
 `plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
 
-In my example `/mnt/disks/plex/appdata/plex/app/Plex\ Media\ Server/Plug-in\ Support/Databases/`
+In my example `/mnt/disks/plex/appdata/plex/app/Plex Media Server/Plug-in Support/Databases/`
 
 and
 
