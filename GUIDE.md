@@ -83,11 +83,11 @@ While the files are moving we are going to create new paths within the container
 - Select `Add another Path, Port, Variable, Label or Device`
 - Config type: `Path`
 - Name: `sync+`
-- Container Path: `/config/app/Plex Media Server/Cache/Transcode/Sync+/ `
+- Container Path: `/config/app/Plex Media Server/Cache/Transcode/Sync+ `
 
 > Note: match these paths to your setup
 
-- Host Path: `/mnt/disks/plex/plex_data/Cache/Transcode/Sync+/ `
+- Host Path: `/mnt/disks/plex/plex_data/Cache/Transcode/Sync+ `
 
 > Note: match these paths to your setup
 
