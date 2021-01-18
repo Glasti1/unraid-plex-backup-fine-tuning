@@ -67,7 +67,7 @@ In my example i place them all under `/mnt/disks/plex/plex_data/*`
 
 > Note: match these paths to your setup.
 >
-> Always make sure you use the real paths. For example. If you are using a cache pool, using `/mnt/user/plex_data/*` will probably not work! You will have to use `/mnt/name_of_your_cache_pool/plex_data/*`
+> Always make sure you use the real paths. For example. If the `plex_data` folder is on a cache pool, using `/mnt/user/plex_data/*`it will probably not work. You will need `/mnt/name_of_your_cache_pool/plex_data/*`.
 
 **4.**
 
