@@ -55,6 +55,8 @@ You want to find the paths to the following folders within you Plex app data fol
 
 In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`
 
+> Note: `/mnt/disks/*` refers to an unassigned mounted drive.
+
 **3.**
 
 Create new the following folders outside of the app data folder.
@@ -69,8 +71,6 @@ In my example i place them all under `/mnt/disks/plex/plex_data/*`
 > Note: match these paths to your setup.
 >
 > Always make sure you use the real paths. For example. If the `plex_data` folder lives on a cache pool, using `/mnt/user/plex_data/*`it will probably not work. You will need `/mnt/<name_of_your_cache_pool>/plex_data/*`.
->
-> Also `/mnt/disks/*` refers to an unassigned mounted drive.
 
 **4.**
 
