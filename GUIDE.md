@@ -66,6 +66,7 @@ Create new the following folders outside of the app data folder.
 In my example i place them all under `/mnt/disks/plex/plex_data/*`
 
 > Note: match these paths to your setup
+> Always make sure you use the real paths. For example. If you are using a cache pool, using `/mnt/user/plex_data/*` will probably not work! You will have to use `/mnt/cache/plex_data/*`
 
 **4.**
 
