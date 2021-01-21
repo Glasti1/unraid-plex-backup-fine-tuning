@@ -57,8 +57,9 @@ You want to find the paths to the following folders within you Plex app data fol
 
 In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`. 
 
-> Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.
-> Not every repository will have the same paths. The pahts shown above will may not work for you, and you will have to confirm the correct paths.
+> Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.   
+>
+> Also not every repository will have the same paths. The pahts shown above will may not work for you, and you will have to confirm the correct paths.
 
 **3.**
 
