@@ -55,9 +55,10 @@ You want to find the paths to the following folders within you Plex app data fol
 > These are critical files we are not moving, but we will need the paths
 > later for the backup script
 
-In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`
+In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`. 
 
 > Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.
+> Not every repository will have the same paths. The pahts shown above will may not work for you, and you will have to confirm the correct paths.
 
 **3.**
 
@@ -65,7 +66,7 @@ Create new the following folders outside of the app data folder.
 
 - `/Cache/Transcode/Sync+` 
 - `/Cache/PhotoTranscoder` 
-- `/plex_data/Media` 
+- `/Media` 
 - `/Metadata` 
 
 In my example i place them all under `/mnt/disks/plex/plex_data/*`
