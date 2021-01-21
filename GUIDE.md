@@ -5,6 +5,8 @@ Guide to seperate the 'important' and 'less important' folders from the plex app
 **Disclaimer: I am not responsible for any possible data loss by following this guide. Use at your own risk. 
 This backup method has been tested by several users and confirmed working.**
 
+**Assumptions:** 
+HotIO's version of the Plex container is being used (if this is not the case you will need to confirm the correct paths for your container)
 
 > The Plex app data folder can get rather big if you have a lot of content and all features, like video thumbnails, enabled. 
 Also the Plex app data folder contains data that is important, for Plex to run properly, which you want to backup daily and less important data, for user experience, that you can backup less frequently.
