@@ -1,179 +1,159 @@
-# unraid-plex-backup-fine-tuning
-Guide to seperate the 'important' and 'less important' folders from the plex appdata to make backups fasters and reduce plex downtime to a minimum
+# UnRAID Plex Backup - Fine Tuning
 
+Guide to separate the "important" and "less important" folders from the Plex appdata folder to make backups fasters and reduce Plex downtime to a minimum.
 
-**Disclaimer: I am not responsible for any possible data loss by following this guide. Use at your own risk. 
+**Disclaimer: I am not responsible for any possible data loss by following this guide. Use at your own risk.
 This backup method has been tested by several users and confirmed working.**
 
-**Assumptions:** 
-Hotio's version of the Plex container is being used (if this is not the case you will need to confirm the correct paths for your container)
+## Assumption
 
-> The Plex app data folder can get rather big if you have a lot of content and all features, like video thumbnails, enabled. 
+[Hotio's image](https://github.com/hotio/plex) of the Plex container is being used - if this is not the case you will need to confirm the correct paths for your container.
+
+## Background
+
+The Plex appdata folder can get rather big if you have a lot of content and all features enabled such as video thumbnails.
 Also the Plex app data folder contains data that is important, for Plex to run properly, which you want to backup daily and less important data, for user experience, that you can backup less frequently.
-> **This guide is NOT a complete replacement for your regular backups, it will NOT restore your plex container if it breaks. Keep backing up all your container app data, including plex, normally following the 1-2-3 strategy.** 
-> A great way to backup all app data is using IamSpartacus [backup_all_appdata](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_all_appdata) script.
+**This guide is NOT a complete replacement for your regular backups, it will NOT restore your Plex container if it breaks. Keep backing up all your container appdata, including Plex, normally following the 1-2-3 strategy.**
 
-In this guide i will show you how to make your backups smaller, faster and reduce Plex downtime to an minimum.
+A great way to backup your appdata folder is using [IamSpartacus' script](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_all_appdata).
 
 **A big thank you to IamSpartacus for writing these scripts to make this possible. If you like his work, please [buy him a beer!](https://www.buymeacoffee.com/iamspartacus)**
 
-Let's get started
+## Configuration
 
-First lets have a look at the scripts. You can find them at https://github.com/SpartacusIam/unraid-scripts
+First lets have a look at the scripts. You can find them [here](https://github.com/SpartacusIam/unraid-scripts)
 
 We will be using the following scripts:
 
-- https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs 
+* [Backup Plex databases](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs)
 
-> This will backup the important Plex database data
+  * This will backup the important Plex database data
 
-- https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata 
+* [Backup Plex appdata](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata)
 
-> This will backup the 'less' important Plex media and metadata data
+  * This will backup the 'less' important Plex media and metadata data
 
-Also we will be using the plugin called `User Scripts` which you can install through the `Community Applications` plugin. 
+We will be using the plugin called `User Scripts` which you can install through the `Community Applications` plugin.
 
-**1.** 
+**Backup your Plex app data folder in case something goes wrong.**
 
-Backup your Plex app data folder for if something goes wrong.
+1. Let's find the paths to the following folders within you Plex appdata folder:
 
-**2.**
+    * These are the "less" important folders we are going to move outside of the appdata folder.
+        * `/Cache/Transcode/Sync+`
+        * `/Cache/PhotoTranscoder`
+        * `/Media`
+        * `/Metadata`
 
-You want to find the paths to the following folders within you Plex app data folder:
-- `/Cache/Transcode/Sync+`
-- `/Cache/PhotoTranscoder`
-- `/Media`
-- `/Metadata`
+    * These are the critical files that we are not moving, but we will need the paths later for the backup script.
+        * `/Databases/com.plexapp.plugins.library.db`
+        * `/Databases/com.plexapp.plugins.library.blobs.db`
 
-> These are the 'less' important folders we are going to move outside of the
-> app data folder.
+    In my case these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`.
 
+    > Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.
+    >
+    > Not every repository will have the same paths. The pahts shown above may not work for you, and you will have to confirm the correct paths.
 
-- `/Databases/com.plexapp.plugins.library.db`
-- `/Databases/com.plexapp.plugins.library.blobs.db`
+2. Create the following new folders outside of the appdata folder:
 
-> These are critical files we are not moving, but we will need the paths
-> later for the backup script
+    * `/Cache/Transcode/Sync+`
+    * `/Cache/PhotoTranscoder`
+    * `/Media`
+    * `/Metadata`
 
-In my example these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`. 
+    In my case I place them all under `/mnt/disks/plex/plex_data/*`
 
-> Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.   
->
-> Also not every repository will have the same paths. The pahts shown above will may not work for you, and you will have to confirm the correct paths.
+    > Note: Match these paths to your setup.
+    >
+    > Always make sure you use the real paths. For example. If the `plex_data` folder lives on a cache pool, using `/mnt/user/plex_data/*` will most likely not work. You will need `/mnt/<name_of_your_cache_pool>/plex_data/*`.
 
-**3.**
+3. Stop the Plex container.
 
-Create new the following folders outside of the app data folder.
+4. Move all the content inside the folders from Step 1 to the newly created folders in Step 2.
+    **Do not delete the folders or contents from the appdata folder.**
 
-- `/Cache/Transcode/Sync+` 
-- `/Cache/PhotoTranscoder` 
-- `/Media` 
-- `/Metadata` 
+5. While the files are moving we are going to create new paths within the container config to match the newly created folders.
 
-In my example i place them all under `/mnt/disks/plex/plex_data/*`
+    * Go to the Plex container config
+    * Select `Add another Path, Port, Variable, Label or Device`
+    * Config type: `Path`
+    * Name: `sync+`
+    * Container Path: `/config/app/Plex Media Server/Cache/Transcode/Sync+`
 
-> Note: match these paths to your setup.
->
-> Always make sure you use the real paths. For example. If the `plex_data` folder lives on a cache pool, using `/mnt/user/plex_data/*` will most probably not work. You will need `/mnt/<name_of_your_cache_pool>/plex_data/*`.
+    > Note: Match these paths to your setup.
 
-**4.**
+    * Host Path: `/mnt/disks/plex/plex_data/Cache/Transcode/Sync+`
 
-Stop the Plex container.
+    > Note: Match these paths to your setup
 
-**5.**
+    * Press `ADD`
+        * **Repeat this step for the PhotoTranscoder, Media and Metadata paths**
+    * Press `APPLY` to save the new config.
 
-Move all the content inside the folders from step **3** to the new created folders in step **4**. Do not delete the folders from the appdata folder.
+    >Note: when using an unassigned drive for your data do not forget to use `R/W Slave`
 
-**6.**
+6. Now let's setup the scripts.
 
-While the files are moving we are going to create new paths within the container config to match the new created folders.
+    * To backup the 'less' important Plex data:
+        * Go to the user scripts plugin, *Settings --> User Plugins*
+        * Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plexdata`.
+        * Edit the script and paste [this script](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata) in there.
 
-- Go to the Plex container config
-- Select `Add another Path, Port, Variable, Label or Device`
-- Config type: `Path`
-- Name: `sync+`
-- Container Path: `/config/app/Plex Media Server/Cache/Transcode/Sync+ `
+    > NOTE: You only need 1 `#!/bin/bash`, otherwise it won't work.
 
-> Note: match these paths to your setup
+    * Change the following paths to the match your paths:
+        * `plexdataDirectory='/PATH/TO/YOUR/PLEXDATA/'`
+        * `backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
 
-- Host Path: `/mnt/disks/plex/plex_data/Cache/Transcode/Sync+ `
+    In my case it looks like this:
 
-> Note: match these paths to your setup
+    ```bash
+        plexdataDirectory='mnt/disks/plex/plex_data/'
+        backupDirectory='/mnt/user/backups/plex/'
+    ```
 
-- Press `ADD`
-- **Repeat this step for the PhotoTranscoder, Media and Metadata paths**
-- Press `APPLY` to save the new config.
+    * Press `SAVE CHANGES`
 
->Note: when using an unassigned drive for your data do not forget to use `R/W Slave`
+    * To backup the important Plex data:
+        * Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plex_dbs`
+        * Edit the script and paste [this script](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs) in there.
 
-**7.**
+    > NOTE: you only need 1 `#!/bin/bash`, otherwise it won't work.
 
-Now let's setup the scripts.
+    * Change the following paths to the match your paths:
+        * `plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
+        * `backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
 
-To backup the 'less' important Plex data:
+    In my case it looks like this:
 
-- Go to the user scripts plugin, *Settings --> User Plugins*
-- Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plexdata`.
-- Edit the script and paste this script in there. 
-https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata
+    ```bash
+        plexdbDirectory='/mnt/disks/plex/appdata/plex/app/Plex Media Server/Plug-in Support/Databases/'
+        backupDirectory='/mnt/user/backups/plex/plexdb/'
+    ```
 
-> NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
+    * Press `SAVE CHANGES`
 
-- Change the following paths to the match your paths:
+7. Now we need to set a schedule, I prefer to do this through a crontab. I use [this website](https://crontab.guru/) to create a crontab.
 
- `plexdataDirectory='/PATH/TO/YOUR/PLEXDATA/'`
+    For `backup_plexdata` I have it set as follows:
 
-In my example `/mnt/disks/plex/plex_data/ `
+    ```bash
+    30 2 * * 2,6
+    ```
 
-and 
+    * This backup runs at 02:30AM on Tuesday and Friday
 
-`backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/' `
+    For `backup_plex_dbs` I have it set as follows:
 
-My backups go to `/mnt/user/backups/plex/`
+    ```bash
+    10 2 * * *
+    ```
 
+    * This backup runs runs at 02:10AM every night.
 
-- Press `SAVE CHANGES`
+8. Test if the new paths are working. If you start Plex and all your metadata is showing it is working as intended!
 
-To backup the important Plex data:
+9. Test if the backup scripts are working properly. Enjoy your fast backups with minimal downtime!
 
-- Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plex_dbs`
-- Edit the script and paste this script in there. 
-https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plex_dbs
-
-> NOTE: you only need 1x `#!/bin/bash`, otherwise it wont work
-
-- Change the following paths to the match your paths:
- 
-`plexdbDirectory='/PATH/TO/YOUR/PLEX/DATABASES/DIRECTORY/'`
-
-In my example `/mnt/disks/plex/appdata/plex/app/Plex Media Server/Plug-in Support/Databases/`
-
-and
-
-`backupDirectory='/PATH/TO/YOUR/BACKUP/DIRECTORY/'`
-
-My backups go to `/mnt/user/backups/plex/plexdb/`
-
-- Press `SAVE CHANGES`
-
-**8.**
-
-Now we need to set a schedule, i prefer to do this through a crontab. I use this website to create a crontab. https://crontab.guru/
-
-For `backup_plexdata` i have set `30 2 * * 2,6`. 
-
-> The backup runs at 02:30AM on Tuesday and Friday
-
-For `backup_plex_dbs` i have set `10 2 * * *`. 
-
-> The backup runs runs at 02:10AM every night.
-
-**9.**
-
-Test if the new paths are working. If you start plex and all your metadata is showing it is working as intended!
-
-Also test if the backup scripts are working properly.
-
-Enjoy your fast backups with minimal downtime. 
-
-If you have any question, you can find me in the UnraidOfficial and UnraidCommunity servers on discord!
+If you have any questions, you can find me in the UnraidOfficial and [UnraidCommunity](https://discord.gg/qWPbc8R) servers on Discord!
