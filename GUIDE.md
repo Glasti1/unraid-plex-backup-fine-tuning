@@ -1,6 +1,6 @@
 # UnRAID Plex Backup - Fine Tuning
 
-Guide to separate the "important" and "less important" folders from the Plex appdata folder to make backups fasters and reduce Plex downtime to a minimum.
+Guide to separate the "important" and "less important" folders from the Plex appdata folder to make backups faster and reduce Plex downtime to a minimum.
 
 **Disclaimer: I am not responsible for any possible data loss by following this guide. Use at your own risk.
 This backup method has been tested by several users and confirmed working.**
@@ -53,7 +53,7 @@ We will be using the plugin called `User Scripts` which you can install through 
 
     > Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.
     >
-    > Not every repository will have the same paths. The pahts shown above may not work for you, and you will have to confirm the correct paths.
+    > Not every repository will have the same paths. The paths shown above may not work for you, and you will have to confirm the correct paths.
 
 2. Create the following new folders outside of the appdata folder:
 
