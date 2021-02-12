@@ -49,7 +49,7 @@ We will be using the plugin called `User Scripts` which you can install through 
         * `/Databases/com.plexapp.plugins.library.db`
         * `/Databases/com.plexapp.plugins.library.blobs.db`
 
-    In my case these folders are under `/mnt/disks/plex/appdata/plex/app/Plex Media Server/*`.
+    In my case these folders are under `/mnt/disks/plex/appdata/plex/*`.
 
     > Note: `/mnt/disks/*` refers to an unassigned mounted drive. Unassigned drives are not protected by the parity, like cache pools.
     >
@@ -79,7 +79,7 @@ We will be using the plugin called `User Scripts` which you can install through 
     * Select `Add another Path, Port, Variable, Label or Device`
     * Config type: `Path`
     * Name: `sync+`
-    * Container Path: `/config/app/Plex Media Server/Cache/Transcode/Sync+`
+    * Container Path: `/config/Cache/Transcode/Sync+`
 
     > Note: Match these paths to your setup.
 
@@ -128,7 +128,7 @@ We will be using the plugin called `User Scripts` which you can install through 
     In my case it looks like this:
 
     ```bash
-        plexdbDirectory='/mnt/disks/plex/appdata/plex/app/Plex Media Server/Plug-in Support/Databases/'
+        plexdbDirectory='/mnt/disks/plex/appdata/plex/Plug-in Support/Databases/'
         backupDirectory='/mnt/user/backups/plex/plexdb/'
     ```
 
