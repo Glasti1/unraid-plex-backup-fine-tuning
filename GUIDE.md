@@ -96,7 +96,7 @@ We will be using the plugin called `User Scripts` which you can install through 
 6. Now let's setup the scripts.
 
     * To backup the 'less' important Plex data:
-        * Go to the user scripts plugin, *Settings --> User Plugins*
+        * Go to the user scripts plugin, *Settings --> User Scripts*
         * Click `ADD NEW SCRIPT` and give it a name. I call it `backup_plexdata`.
         * Edit the script and paste [this script](https://github.com/SpartacusIam/unraid-scripts/blob/master/backup_plexdata) in there.
 
